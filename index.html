@@ -3,14 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>2026 Masters Golf Pool</title>
+<title>2026 PGA Championship Pool</title>
 <style>
   :root {
-    --masters-green: #006747;
-    --masters-dark: #004d35;
-    --masters-gold: #c8a951;
-    --masters-cream: #f5f0e1;
-    --masters-light: #e8f5e9;
+    --pga-blue: #00205b;
+    --pga-dark: #001740;
+    --pga-gold: #c8a951;
+    --pga-cream: #f0f2f5;
+    --pga-light: #e3eaf5;
     --cut-red: #c0392b;
     --birdie-red: #d32f2f;
     --bogey-blue: #1565c0;
@@ -19,21 +19,21 @@
   * { margin:0; padding:0; box-sizing:border-box; }
   body {
     font-family: 'Georgia', 'Times New Roman', serif;
-    background: var(--masters-cream);
+    background: var(--pga-cream);
     color: #333;
     min-height: 100vh;
   }
   header {
-    background: var(--masters-green);
+    background: var(--pga-blue);
     color: white;
     text-align: center;
     padding: 24px 16px 18px;
-    border-bottom: 4px solid var(--masters-gold);
+    border-bottom: 4px solid var(--pga-gold);
   }
   header h1 { font-size: 2rem; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 4px; }
-  header .subtitle { color: var(--masters-gold); font-size: 1rem; font-style: italic; }
+  header .subtitle { color: var(--pga-gold); font-size: 1rem; font-style: italic; }
   .info-bar {
-    background: var(--masters-dark);
+    background: var(--pga-dark);
     color: white;
     display: flex;
     flex-wrap: wrap;
@@ -44,7 +44,7 @@
     font-size: 0.85rem;
   }
   .info-bar span { white-space: nowrap; }
-  .info-bar .gold { color: var(--masters-gold); font-weight: bold; }
+  .info-bar .gold { color: var(--pga-gold); font-weight: bold; }
   .live-dot {
     display: inline-block;
     width: 8px; height: 8px;
@@ -80,10 +80,10 @@
     transition: all 0.2s;
     color: #666;
   }
-  .tab-btn:hover { color: var(--masters-green); }
+  .tab-btn:hover { color: var(--pga-blue); }
   .tab-btn.active {
-    color: var(--masters-green);
-    border-bottom-color: var(--masters-gold);
+    color: var(--pga-blue);
+    border-bottom-color: var(--pga-gold);
     font-weight: bold;
   }
 
@@ -101,7 +101,7 @@
     margin-top: 12px;
   }
   .leaderboard-table th {
-    background: var(--masters-green);
+    background: var(--pga-blue);
     color: white;
     padding: 10px 12px;
     text-align: left;
@@ -116,13 +116,13 @@
     border-bottom: 1px solid #eee;
     font-size: 0.9rem;
   }
-  .leaderboard-table tr:hover { background: var(--masters-light); }
+  .leaderboard-table tr:hover { background: var(--pga-light); }
   .leaderboard-table tr.cut td { color: #999; text-decoration: line-through; }
   .leaderboard-table tr.cut td.pos-col { text-decoration: none; }
   .pos-col { width: 40px; text-align: center; font-weight: bold; color: #888; }
   .owner-badge {
     display: inline-block;
-    background: var(--masters-green);
+    background: var(--pga-blue);
     color: white;
     padding: 1px 8px;
     border-radius: 10px;
@@ -152,9 +152,9 @@
     transition: background 0.15s;
     user-select: none;
   }
-  .team-standing-row:hover { background: var(--masters-light); }
+  .team-standing-row:hover { background: var(--pga-light); }
   .team-standing.ineligible { opacity: 0.6; }
-  .team-rank { font-size: 1.5rem; font-weight: bold; color: var(--masters-gold); text-align: center; }
+  .team-rank { font-size: 1.5rem; font-weight: bold; color: var(--pga-gold); text-align: center; }
   .team-rank.first { color: #c8a951; }
   .team-rank.second { color: #8a8a8a; }
   .team-info h3 { font-size: 1.1rem; margin-bottom: 2px; }
@@ -203,7 +203,7 @@
     box-shadow: 0 2px 8px rgba(0,0,0,0.1);
   }
   .team-card-header {
-    background: var(--masters-green);
+    background: var(--pga-blue);
     color: white;
     padding: 12px 16px;
     display: flex;
@@ -211,7 +211,7 @@
     align-items: center;
   }
   .team-card-header h3 { font-size: 1rem; }
-  .team-card-header .team-score { color: var(--masters-gold); font-size: 1.1rem; }
+  .team-card-header .team-score { color: var(--pga-gold); font-size: 1.1rem; }
   .team-card-body { padding: 0; }
   .team-player {
     display: flex;
@@ -237,10 +237,10 @@
     padding: 20px;
     text-align: center;
     box-shadow: 0 2px 6px rgba(0,0,0,0.08);
-    border-top: 4px solid var(--masters-gold);
+    border-top: 4px solid var(--pga-gold);
   }
-  .payout-card h3 { color: var(--masters-green); margin-bottom: 8px; }
-  .payout-amount { font-size: 1.8rem; font-weight: bold; color: var(--masters-gold); }
+  .payout-card h3 { color: var(--pga-blue); margin-bottom: 8px; }
+  .payout-amount { font-size: 1.8rem; font-weight: bold; color: var(--pga-gold); }
   .payout-desc { font-size: 0.8rem; color: #888; margin-top: 4px; }
 
   .rules-box {
@@ -251,16 +251,16 @@
     box-shadow: 0 2px 6px rgba(0,0,0,0.08);
     line-height: 1.7;
   }
-  .rules-box h3 { color: var(--masters-green); margin-bottom: 12px; }
+  .rules-box h3 { color: var(--pga-blue); margin-bottom: 12px; }
   .rules-box ul { padding-left: 20px; }
   .rules-box li { margin-bottom: 6px; }
 
   .section-title {
     font-size: 1.1rem;
-    color: var(--masters-green);
+    color: var(--pga-blue);
     margin-bottom: 4px;
     padding-bottom: 4px;
-    border-bottom: 2px solid var(--masters-gold);
+    border-bottom: 2px solid var(--pga-gold);
     display: inline-block;
   }
 
@@ -274,39 +274,9 @@
 
   .thru-col { color: #888; font-size: 0.8rem; }
 
-  .feed-status {
-    text-align: center;
-    padding: 8px;
-    font-size: 0.8rem;
-    border-radius: 6px;
-    margin-bottom: 12px;
-  }
-  .feed-status.live { background: #d4edda; color: #155724; }
-  .feed-status.pre { background: #fff3cd; color: #856404; }
-  .feed-status.error { background: #f8d7da; color: #721c24; }
-  .feed-status.manual { background: #e2e3e5; color: #383d41; }
-
-  .countdown {
-    font-size: 0.75rem;
-    color: #888;
-    text-align: center;
-    margin-top: 4px;
-  }
-
-  /* Admin */
   .admin-section { margin-top: 16px; }
-  .admin-section textarea {
-    width: 100%;
-    height: 300px;
-    font-family: 'Courier New', monospace;
-    font-size: 0.8rem;
-    padding: 12px;
-    border: 2px solid #ddd;
-    border-radius: 8px;
-    margin-top: 8px;
-  }
   .admin-btn {
-    background: var(--masters-green);
+    background: var(--pga-blue);
     color: white;
     border: none;
     padding: 10px 24px;
@@ -317,10 +287,7 @@
     margin-top: 8px;
     margin-right: 8px;
   }
-  .admin-btn:hover { background: var(--masters-dark); }
-  .status-msg { margin-top: 8px; padding: 8px; border-radius: 4px; font-size: 0.85rem; display: none; }
-  .status-msg.success { background: #d4edda; color: #155724; display: block; }
-  .status-msg.error { background: #f8d7da; color: #721c24; display: block; }
+  .admin-btn:hover { background: var(--pga-dark); }
 
   @media (max-width: 600px) {
     header h1 { font-size: 1.4rem; }
@@ -334,8 +301,8 @@
 <body>
 
 <header>
-  <h1>The Masters Pool 2026</h1>
-  <div class="subtitle">Augusta National Golf Club &bull; April 10&ndash;13, 2026</div>
+  <h1>PGA Championship Pool 2026</h1>
+  <div class="subtitle">Quail Hollow Club &bull; May 14&ndash;17, 2026</div>
 </header>
 
 <div class="info-bar">
@@ -369,131 +336,127 @@
 //  POOL CONFIGURATION
 // ============================================================
 const OWNERS = {
-  "Logan":  { players: ["Scheffler","Hovland","Cantlay","Homa","Clark","Nick Taylor","Sergio Garcia","DJ"] },
-  "Stu":    { players: ["Rahm","Reed","Min Woo Lee","Hatton","Day","IM","Cam Smith","Jarvis"] },
-  "Tim":    { players: ["Bryson","Morikawa","Bhatia","Scott","Burns","Kitayama","Sam Stevens","Potgieter"] },
-  "Nolan":  { players: ["Xander","MacIntyre","Henley","N Hojgaard","Bridgeman","R Hojgaard","Keegan Bradley","Haotong Li"] },
-  "Sean":   { players: ["Aberg","Matsuyama","Koepka","Lowry","McNealy","Berger","Alex Noren","Ryan Gerard"] },
-  "Devon":  { players: ["Cam Young","Gotterup","Straka","Conners","Griffin","Penge","Ryan Fox","Michael Kim"] },
-  "Billy":  { players: ["Rory","Rose","Spieth","JT","Spaun","English","Echavarria","Greyersman"] },
-  "Tommy":  { players: ["Fitzpatrick","Fleetwood","Si Woo","Knapp","Woodland","Rai","Harry Hall","Brian Harman"] }
+  "Nolan":  { players: ["Scheffler","Hatton","Si Woo Kim","Straka","English","Noren","Harry Hall","Brennan"] },
+  "Timmy":  { players: ["Rory","Henley","Gotterup","Bhatia","Griffin","Thorbjornsen","Smalley","Penge"] },
+  "Tommy":  { players: ["Xander","Morikawa","Hovland","Lowry","Conners","Day","Rai","Hoge"] },
+  "Stu":    { players: ["Rahm","Min Woo","N Hojgaard","Spaun","McNealy","Detry","Puig","McCarty"] },
+  "Logan":  { players: ["Bryson","JT","Koepka","Matsuyama","Niemann","Im","Clark","Cam Smith"] },
+  "Billy":  { players: ["Young","Rose","Fowler","Scott","Kitayama","Bradley","Taylor","Mitchell"] },
+  "Devon":  { players: ["Aberg","Cantlay","Burns","Spieth","Reitan","Woodland","Fox","Yellamaraju"] },
+  "Remz":   { players: ["Fleetwood","Matt Fitzpatrick","Bobby Mac","Reed","Alex Fitzpatrick","Bridgeman","Theegala","R Hojgaard"] }
 };
 
 const DRAFT_ORDER = {
-  "Scheffler":1,"Rahm":2,"Bryson":3,"Xander":4,"Aberg":5,"Cam Young":6,"Rory":7,"Fitzpatrick":8,
-  "Fleetwood":9,"Rose":10,"Gotterup":11,"Matsuyama":12,"MacIntyre":13,"Morikawa":14,"Reed":15,"Hovland":16,
-  "Cantlay":17,"Min Woo Lee":18,"Bhatia":19,"Henley":20,"Koepka":21,"Straka":22,"Spieth":23,"Si Woo":24,
-  "Knapp":25,"JT":26,"Conners":27,"Lowry":28,"N Hojgaard":29,"Scott":30,"Hatton":31,"Homa":32,
-  "Clark":33,"Day":34,"Burns":35,"Bridgeman":36,"McNealy":37,"Griffin":38,"Spaun":39,"Woodland":40,
-  "Rai":41,"English":42,"Penge":43,"Berger":44,"R Hojgaard":45,"Kitayama":46,"IM":47,"Nick Taylor":48,
-  "Sergio Garcia":49,"Cam Smith":50,"Sam Stevens":51,"Keegan Bradley":52,"Alex Noren":53,"Ryan Fox":54,"Echavarria":55,"Harry Hall":56,
-  "Brian Harman":57,"Greyersman":58,"Michael Kim":59,"Ryan Gerard":60,"Haotong Li":61,"Potgieter":62,"Jarvis":63,"DJ":64
+  "Scheffler":1,"Rory":2,"Xander":3,"Rahm":4,"Bryson":5,"Young":6,"Aberg":7,"Fleetwood":8,
+  "Matt Fitzpatrick":9,"Cantlay":10,"Rose":11,"JT":12,"Min Woo":13,"Morikawa":14,"Henley":15,"Hatton":16,
+  "Si Woo Kim":17,"Gotterup":18,"Hovland":19,"N Hojgaard":20,"Koepka":21,"Fowler":22,"Burns":23,"Bobby Mac":24,
+  "Reed":25,"Spieth":26,"Scott":27,"Matsuyama":28,"Spaun":29,"Lowry":30,"Bhatia":31,"Straka":32,
+  "English":33,"Griffin":34,"Conners":35,"McNealy":36,"Niemann":37,"Kitayama":38,"Reitan":39,"Alex Fitzpatrick":40,
+  "Bridgeman":41,"Woodland":42,"Bradley":43,"Im":44,"Detry":45,"Day":46,"Thorbjornsen":47,"Noren":48,
+  "Harry Hall":49,"Smalley":50,"Rai":51,"Puig":52,"Clark":53,"Taylor":54,"Fox":55,"Theegala":56,
+  "R Hojgaard":57,"Yellamaraju":58,"Mitchell":59,"Cam Smith":60,"McCarty":61,"Hoge":62,"Penge":63,"Brennan":64
 };
 
 // ============================================================
-//  NAME MAPPING: Pool nickname -> Masters.com full name
-//  The feed uses "display_name" (last name) and "full_name"
-//  We match on last name primarily, with overrides for conflicts
+//  NAME MAPPING: Pool nickname -> ESPN/feed last name
 // ============================================================
 const NAME_TO_FEED = {
   "Scheffler": "Scheffler",
+  "Rory": "McIlroy",
+  "Xander": "Schauffele",
   "Rahm": "Rahm",
   "Bryson": "DeChambeau",
-  "Xander": "Schauffele",
+  "Young": "Young",
   "Aberg": "Aberg",
-  "Cam Young": "Young",  // Cameron Young
-  "Rory": "McIlroy",
-  "Fitzpatrick": "Fitzpatrick",
   "Fleetwood": "Fleetwood",
-  "Rose": "Rose",
-  "Gotterup": "Gotterup",
-  "Matsuyama": "Matsuyama",
-  "MacIntyre": "MacIntyre",
-  "Morikawa": "Morikawa",
-  "Reed": "Reed",
-  "Hovland": "Hovland",
+  "Matt Fitzpatrick": "Fitzpatrick, M",
   "Cantlay": "Cantlay",
-  "Min Woo Lee": "Lee",  // will match "Min Woo Lee"
-  "Bhatia": "Bhatia",
-  "Henley": "Henley",
-  "Koepka": "Koepka",
-  "Straka": "Straka",
-  "Spieth": "Spieth",
-  "Si Woo": "Kim, S",  // Si Woo Kim
-  "Knapp": "Knapp",
+  "Rose": "Rose",
   "JT": "Thomas",
-  "Conners": "Conners",
-  "Lowry": "Lowry",
-  "N Hojgaard": "Hojgaard, N",
-  "Scott": "Scott",
+  "Min Woo": "Lee",
+  "Morikawa": "Morikawa",
+  "Henley": "Henley",
   "Hatton": "Hatton",
-  "Homa": "Homa",
-  "Clark": "Clark",
-  "Day": "Day",
+  "Si Woo Kim": "Kim, S",
+  "Gotterup": "Gotterup",
+  "Hovland": "Hovland",
+  "N Hojgaard": "Hojgaard, N",
+  "Koepka": "Koepka",
+  "Fowler": "Fowler",
   "Burns": "Burns",
-  "Bridgeman": "Bridgeman",
-  "McNealy": "McNealy",
-  "Griffin": "Griffin",
+  "Bobby Mac": "MacIntyre",
+  "Reed": "Reed",
+  "Spieth": "Spieth",
+  "Scott": "Scott",
+  "Matsuyama": "Matsuyama",
   "Spaun": "Spaun",
-  "Woodland": "Woodland",
-  "Rai": "Rai",
+  "Lowry": "Lowry",
+  "Bhatia": "Bhatia",
+  "Straka": "Straka",
   "English": "English",
-  "Penge": "Penge",
-  "Berger": "Berger",
-  "R Hojgaard": "Hojgaard, R",
+  "Griffin": "Griffin",
+  "Conners": "Conners",
+  "McNealy": "McNealy",
+  "Niemann": "Niemann",
   "Kitayama": "Kitayama",
-  "IM": "Im",
-  "Nick Taylor": "Taylor",
-  "Sergio Garcia": "Garcia",
-  "Cam Smith": "Smith",
-  "Sam Stevens": "Stevens",
-  "Keegan Bradley": "Bradley",
-  "Alex Noren": "Noren",
-  "Ryan Fox": "Fox",
-  "Echavarria": "Echavarria",
+  "Reitan": "Reitan",
+  "Alex Fitzpatrick": "Fitzpatrick, A",
+  "Bridgeman": "Bridgeman",
+  "Woodland": "Woodland",
+  "Bradley": "Bradley",
+  "Im": "Im",
+  "Detry": "Detry",
+  "Day": "Day",
+  "Thorbjornsen": "Thorbjornsen",
+  "Noren": "Noren",
   "Harry Hall": "Hall",
-  "Brian Harman": "Harman",
-  "Greyersman": "Greyserman",
-  "Michael Kim": "Kim, M",
-  "Ryan Gerard": "Gerard",
-  "Haotong Li": "Li",
-  "Potgieter": "Potgieter",
-  "Jarvis": "Jarvis",
-  "DJ": "Johnson"
+  "Smalley": "Smalley",
+  "Rai": "Rai",
+  "Puig": "Puig",
+  "Clark": "Clark",
+  "Taylor": "Taylor",
+  "Fox": "Fox",
+  "Theegala": "Theegala",
+  "R Hojgaard": "Hojgaard, R",
+  "Yellamaraju": "Yellamaraju",
+  "Mitchell": "Mitchell",
+  "Cam Smith": "Smith",
+  "McCarty": "McCarty",
+  "Hoge": "Hoge",
+  "Penge": "Penge",
+  "Brennan": "Brennan"
 };
 
 // ============================================================
 //  STATE
 // ============================================================
-let players = {};  // keyed by pool nickname
+let players = {};
 let feedSource = "none";
 let lastFetchTime = null;
 let autoRefreshInterval = null;
 let refreshSeconds = 60;
 
-// Initialize all players to blank
 Object.keys(DRAFT_ORDER).forEach(name => {
   players[name] = { score: null, today: null, thru: null, status: "active", pos: null };
 });
 
 // ============================================================
-//  LIVE DATA FETCHING
+//  LIVE DATA FETCHING — ESPN (PGA Championship)
 // ============================================================
+const norm = s => (s || "")
+  .normalize("NFD").replace(/[̀-ͯ]/g, "")
+  .replace(/[øØ]/g, "o")
+  .replace(/[æÆ]/g, "ae")
+  .replace(/[łŁ]/g, "l")
+  .replace(/[đĐ]/g, "d")
+  .toLowerCase().trim();
 
-// Try Masters.com feed first, then ESPN fallback
 async function fetchLiveScores() {
   let success = false;
   try {
-    success = await fetchMastersFeed();
+    success = await fetchESPNFeed();
   } catch(e) {
-    console.log("Masters feed failed:", e);
-  }
-  if (!success) {
-    try {
-      success = await fetchESPNFeed();
-    } catch(e) {
-      console.log("ESPN feed failed:", e);
-    }
+    console.log("ESPN feed failed:", e);
   }
   if (success) {
     lastFetchTime = new Date();
@@ -503,124 +466,35 @@ async function fetchLiveScores() {
   return success;
 }
 
-// Masters.com official feed
-async function fetchMastersFeed() {
-  const url = "https://www.masters.com/en_US/scores/feeds/2026/scores.json";
-  const resp = await fetch(url, { cache: "no-cache" });
-  if (!resp.ok) return false;
-  const data = await resp.json();
-  if (!data.data || !data.data.player || data.data.player.length === 0) return false;
-
-  const feedPlayers = data.data.player;
-
-  // Strip diacritics and lowercase (Højgaard -> hojgaard, Åberg -> aberg)
-  const norm = s => (s || "")
-    .normalize("NFD").replace(/[\u0300-\u036f]/g, "")
-    .replace(/[øØ]/g, "o")
-    .replace(/[æÆ]/g, "ae")
-    .replace(/[łŁ]/g, "l")
-    .replace(/[đĐ]/g, "d")
-    .toLowerCase().trim();
-
-  // Build lookup by last name and full name
-  const byLastName = {};
-  const byFullName = {};
-  feedPlayers.forEach(fp => {
-    const lastName = norm(fp.last_name || fp.display_name || "");
-    const fullName = norm(fp.full_name || "");
-    const firstName = norm(fp.first_name || "");
-    byLastName[lastName] = fp;
-    byFullName[fullName] = fp;
-    // Also index "LastName, FirstInitial" for disambiguation
-    if (firstName) {
-      byLastName[lastName + ", " + firstName[0]] = fp;
-    }
-  });
-
-  // Map pool players to feed data
-  for (const [poolName, feedHint] of Object.entries(NAME_TO_FEED)) {
-    const hint = norm(feedHint);
-    let fp = byLastName[hint] || byFullName[hint];
-
-    // Fallback: search by partial match on full_name
-    if (!fp) {
-      fp = feedPlayers.find(p =>
-        norm(p.full_name || "").includes(hint) ||
-        norm(p.last_name || "") === hint
-      );
-    }
-
-    if (fp) {
-      const topar = fp.topar;
-      let score = null;
-      if (topar !== undefined && topar !== null && topar !== "" && topar !== "X") {
-        score = topar === "E" ? 0 : parseInt(topar, 10);
-        if (isNaN(score)) score = null;
-      }
-
-      let todayScore = null;
-      if (fp.today !== undefined && fp.today !== null && fp.today !== "" && fp.today !== "X") {
-        todayScore = fp.today === "E" ? 0 : parseInt(fp.today, 10);
-        if (isNaN(todayScore)) todayScore = null;
-      }
-
-      let thru = fp.thru || null;
-      if (thru === "0" || thru === 0) thru = null;
-
-      // Status: "C" = cut, "W" = withdrawn
-      let status = "active";
-      const playerStatus = (fp.status || fp.newStatus || "").toString().toUpperCase();
-      if (playerStatus === "C" || playerStatus === "CUT") status = "cut";
-      if (playerStatus === "W" || playerStatus === "WD") status = "wd";
-
-      players[poolName] = {
-        score,
-        today: todayScore,
-        thru: thru === "F" ? "F" : thru,
-        status,
-        pos: fp.pos || null
-      };
-    }
-  }
-
-  feedSource = "masters";
-  return true;
-}
-
-// ESPN fallback
 async function fetchESPNFeed() {
   const url = "https://site.api.espn.com/apis/site/v2/sports/golf/pga/scoreboard";
   const resp = await fetch(url, { cache: "no-cache" });
   if (!resp.ok) return false;
   const data = await resp.json();
 
-  // Find the Masters event
-  const mastersEvent = (data.events || []).find(e =>
-    (e.name || "").toLowerCase().includes("masters")
+  // Find the PGA Championship event
+  const pgaEvent = (data.events || []).find(e =>
+    (e.name || "").toLowerCase().includes("pga championship")
   );
-  if (!mastersEvent) return false;
+  if (!pgaEvent) return false;
 
-  const competition = mastersEvent.competitions && mastersEvent.competitions[0];
+  const competition = pgaEvent.competitions && pgaEvent.competitions[0];
   if (!competition || !competition.competitors) return false;
 
   const competitors = competition.competitors;
 
-  const norm = s => (s || "")
-    .normalize("NFD").replace(/[\u0300-\u036f]/g, "")
-    .replace(/[øØ]/g, "o")
-    .replace(/[æÆ]/g, "ae")
-    .replace(/[łŁ]/g, "l")
-    .replace(/[đĐ]/g, "d")
-    .toLowerCase().trim();
-
-  // Build lookup by last name
+  // Build lookup by last name and first initial
   const byLastName = {};
   competitors.forEach(c => {
     const athlete = c.athlete || {};
-    const lastName = norm(athlete.lastName || athlete.displayName || "");
+    const lastName = norm(athlete.lastName || "");
+    const firstName = norm(athlete.firstName || "");
     const fullName = norm(athlete.fullName || athlete.displayName || "");
     byLastName[lastName] = c;
     byLastName[fullName] = c;
+    if (firstName && lastName) {
+      byLastName[lastName + ", " + firstName[0]] = c;
+    }
   });
 
   for (const [poolName, feedHint] of Object.entries(NAME_TO_FEED)) {
@@ -642,17 +516,28 @@ async function fetchESPNFeed() {
         if (isNaN(score)) score = null;
       }
 
+      let todayScore = null;
+      if (c.linescores && c.linescores.length > 0) {
+        const currentRound = c.linescores[c.linescores.length - 1];
+        if (currentRound && currentRound.value !== undefined) {
+          // ESPN gives raw strokes per round, not relative to par
+        }
+      }
+
       let status = "active";
       const state = c.status && c.status.type ? c.status.type.name : "";
       if (state === "cut") status = "cut";
+      if (state === "wd" || state === "withdrawn") status = "wd";
 
-      players[poolName] = {
-        score,
-        today: null,
-        thru: c.status ? (c.status.displayValue || null) : null,
-        status,
-        pos: c.sortOrder || null
-      };
+      let thru = null;
+      if (c.status) {
+        thru = c.status.displayValue || null;
+        if (c.status.period && c.status.type) {
+          if (c.status.type.state === "post") thru = "F";
+        }
+      }
+
+      players[poolName] = { score, today: todayScore, thru, status, pos: c.sortOrder || null };
     }
   }
 
@@ -662,20 +547,15 @@ async function fetchESPNFeed() {
 
 function updateFeedStatus(success) {
   const indicator = document.getElementById("liveIndicator");
-  const dot = indicator.querySelector(".live-dot");
-
   if (success && feedSource !== "none") {
     const hasScores = Object.values(players).some(p => p.score !== null);
     if (hasScores) {
-      dot.className = "live-dot";
-      indicator.innerHTML = `<span class="live-dot"></span> LIVE &mdash; via ${feedSource === "masters" ? "Masters.com" : "ESPN"} (updates every ${refreshSeconds}s)`;
+      indicator.innerHTML = `<span class="live-dot"></span> LIVE &mdash; via ESPN (updates every ${refreshSeconds}s)`;
     } else {
-      dot.className = "live-dot offline";
       indicator.innerHTML = `<span class="live-dot offline"></span> Connected &mdash; awaiting first tee (auto-refresh on)`;
     }
   } else {
-    dot.className = "live-dot offline";
-    indicator.innerHTML = `<span class="live-dot offline"></span> Offline &mdash; using manual scores`;
+    indicator.innerHTML = `<span class="live-dot offline"></span> Offline &mdash; feed unavailable`;
   }
 }
 
@@ -683,7 +563,7 @@ function updateFeedStatus(success) {
 //  HELPERS
 // ============================================================
 function formatScore(score) {
-  if (score === null || score === undefined) return "\u2014";
+  if (score === null || score === undefined) return "—";
   if (score === 0) return "E";
   return score > 0 ? `+${score}` : `${score}`;
 }
@@ -728,7 +608,6 @@ function getTeamScore(ownerName) {
   const madeCut = team.players.filter(p => players[p].status === "active").length;
   const cutPlayers = team.players.filter(p => players[p].status === "cut" || players[p].status === "wd").length;
 
-  // Team score = sum of the BEST 4 scores (lowest 4, since lower is better)
   const bestFour = activePlayers.slice(0, 4);
   let totalScore = null;
   if (bestFour.length > 0) {
@@ -744,6 +623,10 @@ function getTeamScore(ownerName) {
 // ============================================================
 //  RENDER
 // ============================================================
+function toggleTeamDropdown(el) {
+  el.parentElement.classList.toggle("expanded");
+}
+
 function renderLeaderboard() {
   const sorted = getPlayersSorted();
   let pos = 0, lastScore = -999, sameCount = 0;
@@ -759,7 +642,7 @@ function renderLeaderboard() {
     </tr></thead><tbody>`;
 
   sorted.forEach(p => {
-    let displayPos = "\u2014";
+    let displayPos = "—";
     if (p.status === "cut") {
       displayPos = "CUT";
     } else if (p.status === "wd") {
@@ -772,7 +655,7 @@ function renderLeaderboard() {
         sameCount++;
       }
       lastScore = p.score;
-      displayPos = sameCount > 0 || sorted.filter(x => x.score === p.score && x.status === "active").length > 1 ? `T${pos}` : pos;
+      displayPos = sorted.filter(x => x.score === p.score && x.status === "active").length > 1 ? `T${pos}` : pos;
     }
 
     const cutClass = (p.status === "cut" || p.status === "wd") ? "cut" : "";
@@ -781,7 +664,7 @@ function renderLeaderboard() {
       <td>${p.name}<span class="owner-badge">${p.owner}</span></td>
       <td class="score-col ${scoreClass(p.score, p.status)}">${formatScore(p.score)}</td>
       <td class="score-col ${scoreClass(p.today, p.status)}">${formatScore(p.today)}</td>
-      <td class="score-col thru-col">${p.thru || "\u2014"}</td>
+      <td class="score-col thru-col">${p.thru || "—"}</td>
     </tr>`;
   });
 
@@ -806,9 +689,8 @@ function renderTeams() {
       const p = players[playerName];
       const pickNum = DRAFT_ORDER[playerName] || "?";
       const cutClass = (p.status === "cut" || p.status === "wd") ? "cut" : "";
-      const countingClass = countingSet.has(playerName) ? "counting" : "";
-      const star = countingSet.has(playerName) ? '<span style="color:var(--masters-gold);margin-right:4px">&#9733;</span>' : '';
-      html += `<div class="team-player ${cutClass} ${countingClass}">
+      const star = countingSet.has(playerName) ? '<span style="color:var(--pga-gold);margin-right:4px">&#9733;</span>' : '';
+      html += `<div class="team-player ${cutClass}">
         <span>${star}<span class="pick-num">#${pickNum}</span> ${playerName}</span>
         <span class="player-score ${scoreClass(p.score, p.status)}">${formatScore(p.score)}</span>
       </div>`;
@@ -840,7 +722,6 @@ function renderStandings() {
     const rankClass = i === 0 ? "first" : i === 1 ? "second" : "";
     const eligClass = !t.eligible ? "ineligible" : "";
 
-    // Build player dropdown list sorted by score
     const teamPlayers = OWNERS[t.owner].players
       .map(name => ({ name, ...players[name], pick: DRAFT_ORDER[name] }))
       .sort((a, b) => {
@@ -880,10 +761,9 @@ function renderStandings() {
   });
   html += `</div>`;
 
-  // Individual leader
   const topPlayers = getPlayersSorted().filter(p => p.status === "active").slice(0, 5);
   if (topPlayers.length > 0 && topPlayers[0].score !== null) {
-    html += `<h2 class="section-title" style="margin-top:24px">Individual Leader (Masters Winner = $6K / Runner-Up = $3K)</h2>
+    html += `<h2 class="section-title" style="margin-top:24px">Individual Leader (PGA Champ Winner = $6K / Runner-Up = $3K)</h2>
       <table class="leaderboard-table">
       <thead><tr><th class="pos-col">Pos</th><th>Player</th><th>Owner</th><th class="score-col">Score</th></tr></thead><tbody>`;
     topPlayers.forEach((p, i) => {
@@ -901,7 +781,6 @@ function renderStandings() {
 }
 
 function calcPayouts() {
-  // Returns { ownerName: totalWinnings } for current standings
   const winnings = {};
   Object.keys(OWNERS).forEach(o => winnings[o] = 0);
 
@@ -911,33 +790,30 @@ function calcPayouts() {
 
   const details = [];
 
-  // --- Individual: Masters Winner ($6K) and Runner-Up ($3K) ---
+  // Individual: PGA Champ Winner ($6K) and Runner-Up ($3K)
   if (sorted.length >= 1) {
     const bestScore = sorted[0].score;
     const winners = sorted.filter(p => p.score === bestScore);
     if (winners.length === 1) {
-      // Clear winner
       winnings[winners[0].owner] += 6000;
-      details.push({ prize: "Masters Winner", amount: 6000, owners: [winners[0].owner], player: winners[0].name });
-      // Runner-up
+      details.push({ prize: "PGA Champ Winner", amount: 6000, owners: [winners[0].owner], player: winners[0].name });
       const remaining = sorted.filter(p => p.score !== bestScore);
       if (remaining.length >= 1) {
         const runnerScore = remaining[0].score;
         const runners = remaining.filter(p => p.score === runnerScore);
         const split = Math.round(3000 / runners.length);
         runners.forEach(r => winnings[r.owner] += split);
-        details.push({ prize: "Masters Runner-Up", amount: 3000, owners: runners.map(r => r.owner), player: runners.map(r => r.name).join(", "), split: runners.length > 1 });
+        details.push({ prize: "PGA Champ Runner-Up", amount: 3000, owners: runners.map(r => r.owner), player: runners.map(r => r.name).join(", "), split: runners.length > 1 });
       }
     } else {
-      // Tie at top — split winner + runner-up ($9K total) among all tied
-      const totalPool = winners.length === 2 ? 9000 : 6000; // if 3+ tied, only split winner money? No — 2 tied split 9K, 3+ tied split 9K
+      const totalPool = 9000;
       const splitAmount = Math.round(totalPool / winners.length);
       winners.forEach(w => winnings[w.owner] += splitAmount);
-      details.push({ prize: "Masters Winner + Runner-Up (tied)", amount: totalPool, owners: winners.map(w => w.owner), player: winners.map(w => w.name).join(", "), split: true });
+      details.push({ prize: "PGA Champ Winner + Runner-Up (tied)", amount: totalPool, owners: winners.map(w => w.owner), player: winners.map(w => w.name).join(", "), split: true });
     }
   }
 
-  // --- Team: Champion ($10K) and Runner-Up ($5K) ---
+  // Team: Champion ($10K) and Runner-Up ($5K)
   const teamStandings = Object.keys(OWNERS)
     .map(owner => ({ owner, ...getTeamScore(owner) }))
     .filter(t => t.eligible && t.totalScore !== null)
@@ -949,7 +825,6 @@ function calcPayouts() {
     if (teamWinners.length === 1) {
       winnings[teamWinners[0].owner] += 10000;
       details.push({ prize: "Team Champion", amount: 10000, owners: [teamWinners[0].owner] });
-      // Team runner-up
       const teamRemaining = teamStandings.filter(t => t.totalScore !== bestTeamScore);
       if (teamRemaining.length >= 1) {
         const runnerTeamScore = teamRemaining[0].totalScore;
@@ -959,7 +834,6 @@ function calcPayouts() {
         details.push({ prize: "Team Runner-Up", amount: 5000, owners: teamRunners.map(r => r.owner), split: teamRunners.length > 1 });
       }
     } else {
-      // Tie at top — split champ + runner-up ($15K total)
       const totalPool = teamWinners.length === 2 ? 15000 : 10000;
       const splitAmount = Math.round(totalPool / teamWinners.length);
       teamWinners.forEach(w => winnings[w.owner] += splitAmount);
@@ -976,17 +850,15 @@ function renderPayouts() {
 
   let html = `<h2 class="section-title">Payout Structure</h2>
     <div class="payouts-grid">
-      <div class="payout-card"><h3>Masters Winner</h3><div class="payout-amount">$6,000</div><div class="payout-desc">Owner of the tournament champion</div></div>
-      <div class="payout-card"><h3>Masters Runner-Up</h3><div class="payout-amount">$3,000</div><div class="payout-desc">Owner of the solo 2nd place finisher</div></div>
+      <div class="payout-card"><h3>PGA Champ Winner</h3><div class="payout-amount">$6,000</div><div class="payout-desc">Owner of the tournament champion</div></div>
+      <div class="payout-card"><h3>PGA Champ Runner-Up</h3><div class="payout-amount">$3,000</div><div class="payout-desc">Owner of the solo 2nd place finisher</div></div>
       <div class="payout-card"><h3>Team Champion</h3><div class="payout-amount">$10,000</div><div class="payout-desc">Lowest best-4 combined score (4+ must make cut)</div></div>
       <div class="payout-card"><h3>Team Runner-Up</h3><div class="payout-amount">$5,000</div><div class="payout-desc">Second lowest combined team score</div></div>
     </div>`;
 
-  // Current winnings per team
   if (hasScores) {
     html += `<h2 class="section-title" style="margin-top:24px">Current Winnings (as it stands now)</h2>`;
 
-    // Prize breakdown
     if (details.length > 0) {
       html += `<table class="leaderboard-table" style="margin-bottom:16px">
         <thead><tr><th>Prize</th><th>Owner(s)</th><th class="score-col">Amount</th></tr></thead><tbody>`;
@@ -994,12 +866,11 @@ function renderPayouts() {
         const ownerStr = d.owners.join(", ") + (d.split ? " (split)" : "");
         const playerStr = d.player ? ` <span style="color:#888;font-size:0.8rem">(${d.player})</span>` : "";
         const perPerson = d.split ? Math.round(d.amount / d.owners.length) : d.amount;
-        html += `<tr><td>${d.prize}${playerStr}</td><td>${ownerStr}</td><td class="score-col" style="color:var(--masters-green);font-weight:bold">$${perPerson.toLocaleString()}${d.split ? " each" : ""}</td></tr>`;
+        html += `<tr><td>${d.prize}${playerStr}</td><td>${ownerStr}</td><td class="score-col" style="color:var(--pga-blue);font-weight:bold">$${perPerson.toLocaleString()}${d.split ? " each" : ""}</td></tr>`;
       });
       html += `</tbody></table>`;
     }
 
-    // Summary per owner
     const ownerTotals = Object.entries(winnings)
       .map(([owner, amount]) => ({ owner, amount, net: amount - 3000 }))
       .sort((a, b) => b.amount - a.amount);
@@ -1011,7 +882,7 @@ function renderPayouts() {
       const netStr = o.net > 0 ? `+$${o.net.toLocaleString()}` : o.net < 0 ? `-$${Math.abs(o.net).toLocaleString()}` : "$0";
       html += `<tr>
         <td>${o.owner}</td>
-        <td class="score-col" style="font-weight:bold;color:var(--masters-green)">${o.amount > 0 ? "$" + o.amount.toLocaleString() : "—"}</td>
+        <td class="score-col" style="font-weight:bold;color:var(--pga-blue)">${o.amount > 0 ? "$" + o.amount.toLocaleString() : "—"}</td>
         <td class="score-col" style="color:#888">$3,000</td>
         <td class="score-col ${netClass}">${netStr}</td>
       </tr>`;
@@ -1026,7 +897,7 @@ function renderPayouts() {
         <li><strong>Draft:</strong> Snake draft, 8 rounds, 8 players per team (64 total picks)</li>
         <li><strong>Team Eligibility:</strong> At least 4 of your 8 players must make the cut</li>
         <li><strong>Team Score:</strong> Sum of the best 4 player scores (of those who made the cut)</li>
-        <li><strong>Individual Prizes:</strong> Based on which owner drafted the Masters winner / runner-up</li>
+        <li><strong>Individual Prizes:</strong> Based on which owner drafted the PGA Championship winner / runner-up</li>
         <li><strong>Ties:</strong> Prize money is split evenly among tied owners</li>
       </ul>
     </div>`;
@@ -1034,7 +905,7 @@ function renderPayouts() {
 }
 
 function renderAdmin() {
-  const feedLabel = feedSource === "masters" ? "Masters.com" : feedSource === "espn" ? "ESPN" : "None";
+  const feedLabel = feedSource === "espn" ? "ESPN" : "None";
   let html = `<h2 class="section-title">Live Feed Settings</h2>
     <div class="rules-box" style="margin-top:12px">
       <h3>Auto-Refresh Status</h3>
@@ -1046,30 +917,8 @@ function renderAdmin() {
       <button class="admin-btn" onclick="toggleAutoRefresh()">
         ${autoRefreshInterval ? "Pause Auto-Refresh" : "Start Auto-Refresh"}
       </button>
-    </div>
-
-`;
-
+    </div>`;
   document.getElementById('admin').innerHTML = html;
-}
-
-function applyManualScores() {
-  const msg = document.getElementById('statusMsg');
-  try {
-    const data = JSON.parse(document.getElementById('scoreEditor').value);
-    Object.assign(players, data);
-    feedSource = "manual";
-    renderAll();
-    msg.className = "status-msg success";
-    msg.textContent = "Manual scores applied!";
-  } catch(e) {
-    msg.className = "status-msg error";
-    msg.textContent = "Invalid JSON: " + e.message;
-  }
-}
-
-function toggleTeamDropdown(rowEl) {
-  rowEl.parentElement.classList.toggle('expanded');
 }
 
 function showTab(tabId, btn) {
@@ -1099,12 +948,9 @@ function renderAll() {
   document.getElementById('lastUpdated').textContent = `Last updated: ${timeStr}`;
 }
 
-// ============================================================
-//  INIT: fetch scores on load, start auto-refresh
-// ============================================================
+// INIT
 renderAll();
 fetchLiveScores().then(() => {
-  // Start auto-refresh
   autoRefreshInterval = setInterval(fetchLiveScores, refreshSeconds * 1000);
   renderAdmin();
 });
