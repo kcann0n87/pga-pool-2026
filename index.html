@@ -358,73 +358,74 @@ const DRAFT_ORDER = {
 };
 
 // ============================================================
-//  NAME MAPPING: Pool nickname -> ESPN/feed last name
+//  NAME MAPPING: Pool nickname -> ESPN fullName (exact match)
+//  Using full names from ESPN feed for reliable matching
 // ============================================================
 const NAME_TO_FEED = {
-  "Scheffler": "Scheffler",
-  "Rory": "McIlroy",
-  "Xander": "Schauffele",
-  "Rahm": "Rahm",
-  "Bryson": "DeChambeau",
-  "Young": "Young",
-  "Aberg": "Aberg",
-  "Fleetwood": "Fleetwood",
-  "Matt Fitzpatrick": "Fitzpatrick, M",
-  "Cantlay": "Cantlay",
-  "Rose": "Rose",
-  "JT": "Thomas",
-  "Min Woo": "Lee",
-  "Morikawa": "Morikawa",
-  "Henley": "Henley",
-  "Hatton": "Hatton",
-  "Si Woo Kim": "Kim, S",
-  "Gotterup": "Gotterup",
-  "Hovland": "Hovland",
-  "N Hojgaard": "Hojgaard, N",
-  "Koepka": "Koepka",
-  "Fowler": "Fowler",
-  "Burns": "Burns",
-  "Bobby Mac": "MacIntyre",
-  "Reed": "Reed",
-  "Spieth": "Spieth",
-  "Scott": "Scott",
-  "Matsuyama": "Matsuyama",
-  "Spaun": "Spaun",
-  "Lowry": "Lowry",
-  "Bhatia": "Bhatia",
-  "Straka": "Straka",
-  "English": "English",
-  "Griffin": "Griffin",
-  "Conners": "Conners",
-  "McNealy": "McNealy",
-  "Niemann": "Niemann",
-  "Kitayama": "Kitayama",
-  "Reitan": "Reitan",
-  "Alex Fitzpatrick": "Fitzpatrick, A",
-  "Bridgeman": "Bridgeman",
-  "Woodland": "Woodland",
-  "Bradley": "Bradley",
-  "Im": "Im",
-  "Detry": "Detry",
-  "Day": "Day",
-  "Thorbjornsen": "Thorbjornsen",
-  "Noren": "Noren",
-  "Harry Hall": "Hall",
-  "Smalley": "Smalley",
-  "Rai": "Rai",
-  "Puig": "Puig",
-  "Clark": "Clark",
-  "Taylor": "Taylor",
-  "Fox": "Fox",
-  "Theegala": "Theegala",
-  "R Hojgaard": "Hojgaard, R",
-  "Yellamaraju": "Yellamaraju",
-  "Mitchell": "Mitchell",
-  "Cam Smith": "Smith",
-  "McCarty": "McCarty",
-  "Hoge": "Hoge",
-  "Penge": "Penge",
-  "Brennan": "Brennan"
+  "Scheffler": "Scottie Scheffler",
+  "Rory": "Rory McIlroy",
+  "Xander": "Xander Schauffele",
+  "Rahm": "Jon Rahm",
+  "Bryson": "Bryson DeChambeau",
+  "Young": "Cameron Young",
+  "Aberg": "Ludvig Aberg",
+  "Fleetwood": "Tommy Fleetwood",
+  "Matt Fitzpatrick": "Matt Fitzpatrick",
+  "Cantlay": "Patrick Cantlay",
+  "Rose": "Justin Rose",
+  "JT": "Justin Thomas",
+  "Min Woo": "Min Woo Lee",
+  "Morikawa": "Collin Morikawa",
+  "Henley": "Russell Henley",
+  "Hatton": "Tyrrell Hatton",
+  "Si Woo Kim": "Si Woo Kim",
+  "Gotterup": "Chris Gotterup",
+  "Hovland": "Viktor Hovland",
+  "N Hojgaard": "Nicolai Hojgaard",
+  "Koepka": "Brooks Koepka",
+  "Fowler": "Rickie Fowler",
+  "Burns": "Sam Burns",
+  "Bobby Mac": "Robert MacIntyre",
+  "Reed": "Patrick Reed",
+  "Spieth": "Jordan Spieth",
+  "Scott": "Adam Scott",
+  "Matsuyama": "Hideki Matsuyama",
+  "Spaun": "J.J. Spaun",
+  "Lowry": "Shane Lowry",
+  "Bhatia": "Akshay Bhatia",
+  "Straka": "Sepp Straka",
+  "English": "Harris English",
+  "Griffin": "Ben Griffin",
+  "Conners": "Corey Conners",
+  "McNealy": "Maverick McNealy",
+  "Niemann": "Joaquin Niemann",
+  "Kitayama": "Kurt Kitayama",
+  "Reitan": "Kristoffer Reitan",
+  "Alex Fitzpatrick": "Alex Fitzpatrick",
+  "Bridgeman": "Jacob Bridgeman",
+  "Woodland": "Gary Woodland",
+  "Bradley": "Keegan Bradley",
+  "Im": "Sungjae Im",
+  "Detry": "Thomas Detry",
+  "Day": "Jason Day",
+  "Thorbjornsen": "Michael Thorbjornsen",
+  "Noren": "Alex Noren",
+  "Harry Hall": "Harry Hall",
+  "Smalley": "Alex Smalley",
+  "Rai": "Aaron Rai",
+  "Puig": "David Puig",
+  "Clark": "Wyndham Clark",
+  "Taylor": "Nick Taylor",
+  "Fox": "Ryan Fox",
+  "Theegala": "Sahith Theegala",
+  "R Hojgaard": "Rasmus Hojgaard",
+  "Yellamaraju": "Sudarshan Yellamaraju",
+  "Mitchell": "Keith Mitchell",
+  "Cam Smith": "Cameron Smith",
+  "McCarty": "Matt McCarty",
+  "Hoge": "Tom Hoge",
+  "Penge": "Marco Penge",
+  "Brennan": "Michael Brennan"
 };
 
 // ============================================================
@@ -483,28 +484,23 @@ async function fetchESPNFeed() {
 
   const competitors = competition.competitors;
 
-  // Build lookup by last name and first initial
-  const byLastName = {};
+  // Build lookup by normalized fullName (ESPN doesn't always populate firstName/lastName)
+  const byFullName = {};
   competitors.forEach(c => {
     const athlete = c.athlete || {};
-    const lastName = norm(athlete.lastName || "");
-    const firstName = norm(athlete.firstName || "");
     const fullName = norm(athlete.fullName || athlete.displayName || "");
-    byLastName[lastName] = c;
-    byLastName[fullName] = c;
-    if (firstName && lastName) {
-      byLastName[lastName + ", " + firstName[0]] = c;
-    }
+    byFullName[fullName] = c;
   });
 
   for (const [poolName, feedHint] of Object.entries(NAME_TO_FEED)) {
     const hint = norm(feedHint);
-    let c = byLastName[hint];
+    let c = byFullName[hint];
+    // Fallback: partial match on fullName
     if (!c) {
       c = competitors.find(comp => {
         const a = comp.athlete || {};
-        return norm(a.lastName || "") === hint ||
-               norm(a.fullName || "").includes(hint);
+        const full = norm(a.fullName || a.displayName || "");
+        return full.includes(hint) || hint.includes(full);
       });
     }
 
