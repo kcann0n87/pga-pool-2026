@@ -513,27 +513,46 @@ async function fetchESPNFeed() {
       }
 
       let todayScore = null;
-      if (c.linescores && c.linescores.length > 0) {
-        const currentRound = c.linescores[c.linescores.length - 1];
-        if (currentRound && currentRound.value !== undefined) {
-          // ESPN gives raw strokes per round, not relative to par
-        }
-      }
 
+      // Detect cut status:
+      // 1. ESPN explicit status field
+      // 2. After round 2 is complete, players with only 2 linescores periods missed the cut
       let status = "active";
       const state = c.status && c.status.type ? c.status.type.name : "";
       if (state === "cut") status = "cut";
       if (state === "wd" || state === "withdrawn") status = "wd";
 
+      const compStatus = competition.status || {};
+      const compRound = compStatus.period || 0;
+      const compComplete = compStatus.type ? compStatus.type.completed : false;
+      const roundPeriods = (c.linescores || []).length;
+
+      // If round 2+ is complete and player only has 2 periods of data, they missed the cut
+      if (status === "active" && compRound >= 2 && roundPeriods === 2) {
+        // Check if other players have more periods (confirming cut has happened)
+        const maxPeriods = Math.max(...competitors.map(x => (x.linescores || []).length));
+        if (maxPeriods > 2 || compComplete) {
+          status = "cut";
+        }
+      }
+
+      // For cut players, null out their score so it doesn't count
+      if (status === "cut") {
+        score = null;
+        todayScore = null;
+      }
+
       let thru = null;
-      if (c.status) {
+      if (status === "cut") {
+        thru = "CUT";
+      } else if (c.status) {
         thru = c.status.displayValue || null;
         if (c.status.period && c.status.type) {
           if (c.status.type.state === "post") thru = "F";
         }
       }
 
-      players[poolName] = { score, today: todayScore, thru, status, pos: c.sortOrder || null };
+      players[poolName] = { score, today: todayScore, thru, status, pos: c.order || null };
     }
   }
 
