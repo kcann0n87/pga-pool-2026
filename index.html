@@ -3,14 +3,15 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>2026 PGA Championship Pool</title>
+<title>2026 US Open Pool</title>
 <style>
   :root {
-    --pga-blue: #00205b;
-    --pga-dark: #001740;
-    --pga-gold: #c8a951;
-    --pga-cream: #f0f2f5;
-    --pga-light: #e3eaf5;
+    --uso-blue: #003366;
+    --uso-dark: #002244;
+    --uso-red: #c41e3a;
+    --uso-gold: #c8a951;
+    --uso-cream: #f0f2f5;
+    --uso-light: #e3eaf5;
     --cut-red: #c0392b;
     --birdie-red: #d32f2f;
     --bogey-blue: #1565c0;
@@ -19,21 +20,21 @@
   * { margin:0; padding:0; box-sizing:border-box; }
   body {
     font-family: 'Georgia', 'Times New Roman', serif;
-    background: var(--pga-cream);
+    background: var(--uso-cream);
     color: #333;
     min-height: 100vh;
   }
   header {
-    background: var(--pga-blue);
+    background: var(--uso-blue);
     color: white;
     text-align: center;
     padding: 24px 16px 18px;
-    border-bottom: 4px solid var(--pga-gold);
+    border-bottom: 4px solid var(--uso-red);
   }
   header h1 { font-size: 2rem; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 4px; }
-  header .subtitle { color: var(--pga-gold); font-size: 1rem; font-style: italic; }
+  header .subtitle { color: var(--uso-gold); font-size: 1rem; font-style: italic; }
   .info-bar {
-    background: var(--pga-dark);
+    background: var(--uso-dark);
     color: white;
     display: flex;
     flex-wrap: wrap;
@@ -44,7 +45,7 @@
     font-size: 0.85rem;
   }
   .info-bar span { white-space: nowrap; }
-  .info-bar .gold { color: var(--pga-gold); font-weight: bold; }
+  .info-bar .gold { color: var(--uso-gold); font-weight: bold; }
   .live-dot {
     display: inline-block;
     width: 8px; height: 8px;
@@ -80,10 +81,10 @@
     transition: all 0.2s;
     color: #666;
   }
-  .tab-btn:hover { color: var(--pga-blue); }
+  .tab-btn:hover { color: var(--uso-blue); }
   .tab-btn.active {
-    color: var(--pga-blue);
-    border-bottom-color: var(--pga-gold);
+    color: var(--uso-blue);
+    border-bottom-color: var(--uso-red);
     font-weight: bold;
   }
 
@@ -101,7 +102,7 @@
     margin-top: 12px;
   }
   .leaderboard-table th {
-    background: var(--pga-blue);
+    background: var(--uso-blue);
     color: white;
     padding: 10px 12px;
     text-align: left;
@@ -116,13 +117,13 @@
     border-bottom: 1px solid #eee;
     font-size: 0.9rem;
   }
-  .leaderboard-table tr:hover { background: var(--pga-light); }
+  .leaderboard-table tr:hover { background: var(--uso-light); }
   .leaderboard-table tr.cut td { color: #999; text-decoration: line-through; }
   .leaderboard-table tr.cut td.pos-col { text-decoration: none; }
   .pos-col { width: 40px; text-align: center; font-weight: bold; color: #888; }
   .owner-badge {
     display: inline-block;
-    background: var(--pga-blue);
+    background: var(--uso-blue);
     color: white;
     padding: 1px 8px;
     border-radius: 10px;
@@ -152,14 +153,17 @@
     transition: background 0.15s;
     user-select: none;
   }
-  .team-standing-row:hover { background: var(--pga-light); }
+  .team-standing-row:hover { background: var(--uso-light); }
   .team-standing.ineligible { opacity: 0.6; }
-  .team-rank { font-size: 1.5rem; font-weight: bold; color: var(--pga-gold); text-align: center; }
+  .team-standing.last-place { border: 2px solid var(--cut-red); }
+  .team-rank { font-size: 1.5rem; font-weight: bold; color: var(--uso-gold); text-align: center; }
   .team-rank.first { color: #c8a951; }
   .team-rank.second { color: #8a8a8a; }
+  .team-rank.last { color: var(--cut-red); }
   .team-info h3 { font-size: 1.1rem; margin-bottom: 2px; }
   .team-info .players-made-cut { font-size: 0.8rem; color: #888; }
   .team-info .ineligible-label { color: var(--cut-red); font-weight: bold; font-size: 0.75rem; }
+  .team-info .last-label { color: var(--cut-red); font-weight: bold; font-size: 0.75rem; }
   .team-total-score { font-size: 1.4rem; font-weight: bold; }
   .team-caret {
     font-size: 0.9rem;
@@ -203,7 +207,7 @@
     box-shadow: 0 2px 8px rgba(0,0,0,0.1);
   }
   .team-card-header {
-    background: var(--pga-blue);
+    background: var(--uso-blue);
     color: white;
     padding: 12px 16px;
     display: flex;
@@ -211,7 +215,7 @@
     align-items: center;
   }
   .team-card-header h3 { font-size: 1rem; }
-  .team-card-header .team-score { color: var(--pga-gold); font-size: 1.1rem; }
+  .team-card-header .team-score { color: var(--uso-gold); font-size: 1.1rem; }
   .team-card-body { padding: 0; }
   .team-player {
     display: flex;
@@ -227,7 +231,7 @@
 
   .payouts-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     gap: 16px;
     margin-top: 12px;
   }
@@ -237,10 +241,12 @@
     padding: 20px;
     text-align: center;
     box-shadow: 0 2px 6px rgba(0,0,0,0.08);
-    border-top: 4px solid var(--pga-gold);
+    border-top: 4px solid var(--uso-red);
   }
-  .payout-card h3 { color: var(--pga-blue); margin-bottom: 8px; }
-  .payout-amount { font-size: 1.8rem; font-weight: bold; color: var(--pga-gold); }
+  .payout-card.penalty { border-top-color: var(--cut-red); }
+  .payout-card h3 { color: var(--uso-blue); margin-bottom: 8px; }
+  .payout-amount { font-size: 1.8rem; font-weight: bold; color: var(--uso-gold); }
+  .payout-amount.penalty { color: var(--cut-red); }
   .payout-desc { font-size: 0.8rem; color: #888; margin-top: 4px; }
 
   .rules-box {
@@ -251,16 +257,16 @@
     box-shadow: 0 2px 6px rgba(0,0,0,0.08);
     line-height: 1.7;
   }
-  .rules-box h3 { color: var(--pga-blue); margin-bottom: 12px; }
+  .rules-box h3 { color: var(--uso-blue); margin-bottom: 12px; }
   .rules-box ul { padding-left: 20px; }
   .rules-box li { margin-bottom: 6px; }
 
   .section-title {
     font-size: 1.1rem;
-    color: var(--pga-blue);
+    color: var(--uso-blue);
     margin-bottom: 4px;
     padding-bottom: 4px;
-    border-bottom: 2px solid var(--pga-gold);
+    border-bottom: 2px solid var(--uso-red);
     display: inline-block;
   }
 
@@ -276,7 +282,7 @@
 
   .admin-section { margin-top: 16px; }
   .admin-btn {
-    background: var(--pga-blue);
+    background: var(--uso-blue);
     color: white;
     border: none;
     padding: 10px 24px;
@@ -287,7 +293,7 @@
     margin-top: 8px;
     margin-right: 8px;
   }
-  .admin-btn:hover { background: var(--pga-dark); }
+  .admin-btn:hover { background: var(--uso-dark); }
 
   @media (max-width: 600px) {
     header h1 { font-size: 1.4rem; }
@@ -301,14 +307,14 @@
 <body>
 
 <header>
-  <h1>PGA Championship Pool 2026</h1>
-  <div class="subtitle">Aronimink Golf Club &bull; May 14&ndash;17, 2026</div>
+  <h1>US Open Pool 2026</h1>
+  <div class="subtitle">Shinnecock Hills Golf Club &bull; June 18&ndash;21, 2026</div>
 </header>
 
 <div class="info-bar">
   <span><span class="gold">$3,000</span> Per Team</span>
-  <span><span class="gold">8</span> Teams</span>
-  <span><span class="gold">$24,000</span> Total Pot</span>
+  <span><span class="gold">7</span> Teams</span>
+  <span><span class="gold">$22,000</span> Total Pot</span>
   <span>Snake Draft &bull; 8 Rounds</span>
   <span id="liveIndicator"><span class="live-dot offline"></span> Waiting for tournament</span>
 </div>
@@ -336,96 +342,86 @@
 //  POOL CONFIGURATION
 // ============================================================
 const OWNERS = {
-  "Nolan":  { players: ["Scheffler","Hatton","Si Woo Kim","Straka","English","Noren","Harry Hall","Brennan"] },
-  "Timmy":  { players: ["Rory","Henley","Gotterup","Bhatia","Griffin","Thorbjornsen","Smalley","Penge"] },
-  "Tommy":  { players: ["Xander","Morikawa","Hovland","Lowry","Conners","Day","Rai","Hoge"] },
-  "Stu":    { players: ["Rahm","Min Woo","N Hojgaard","Spaun","McNealy","Detry","Puig","McCarty"] },
-  "Logan":  { players: ["Bryson","JT","Koepka","Matsuyama","Niemann","Im","Clark","Cam Smith"] },
-  "Billy":  { players: ["Young","Rose","Fowler","Scott","Kitayama","Bradley","Taylor","Mitchell"] },
-  "Devon":  { players: ["Aberg","Cantlay","Burns","Spieth","Reitan","Woodland","Fox","Yellamaraju"] },
-  "Remz":   { players: ["Fleetwood","Matt Fitzpatrick","Bobby Mac","Reed","Alex Fitzpatrick","Bridgeman","Theegala","R Hojgaard"] }
+  "Billy":    { players: ["Scheffler","Burns","Reed","Kitayama","Lowry","Fowler","Bridgeman","Mitchell"] },
+  "Remz":     { players: ["Rory","Koepka","Si Woo Kim","English","Cam Smith","Spieth","Bradley","Harman"] },
+  "Tommy":    { players: ["Fleetwood","Bryson","Rose","Straka","Noren","Scott","Conners","Keefer"] },
+  "Tim":      { players: ["Rahm","Morikawa","Gotterup","Bobby Mac","McNealy","Niemann","Cauley","Berger"] },
+  "Stu":      { players: ["Xander","Henley","Hovland","JT","Min Woo","Alex Fitzpatrick","Rai","N Hojgaard"] },
+  "Devon":    { players: ["Cam Young","Hatton","Clark","Matsuyama","Gerard","Day","Theegala","Koivun"] },
+  "K Cannon": { players: ["Matt Fitzpatrick","Aberg","Cantlay","Spaun","Reitan","Griffin","Puig","Woodland"] }
 };
 
 const DRAFT_ORDER = {
-  "Scheffler":1,"Rory":2,"Xander":3,"Rahm":4,"Bryson":5,"Young":6,"Aberg":7,"Fleetwood":8,
-  "Matt Fitzpatrick":9,"Cantlay":10,"Rose":11,"JT":12,"Min Woo":13,"Morikawa":14,"Henley":15,"Hatton":16,
-  "Si Woo Kim":17,"Gotterup":18,"Hovland":19,"N Hojgaard":20,"Koepka":21,"Fowler":22,"Burns":23,"Bobby Mac":24,
-  "Reed":25,"Spieth":26,"Scott":27,"Matsuyama":28,"Spaun":29,"Lowry":30,"Bhatia":31,"Straka":32,
-  "English":33,"Griffin":34,"Conners":35,"McNealy":36,"Niemann":37,"Kitayama":38,"Reitan":39,"Alex Fitzpatrick":40,
-  "Bridgeman":41,"Woodland":42,"Bradley":43,"Im":44,"Detry":45,"Day":46,"Thorbjornsen":47,"Noren":48,
-  "Harry Hall":49,"Smalley":50,"Rai":51,"Puig":52,"Clark":53,"Taylor":54,"Fox":55,"Theegala":56,
-  "R Hojgaard":57,"Yellamaraju":58,"Mitchell":59,"Cam Smith":60,"McCarty":61,"Hoge":62,"Penge":63,"Brennan":64
+  "Scheffler":1,"Rory":2,"Fleetwood":3,"Rahm":4,"Xander":5,"Cam Young":6,"Matt Fitzpatrick":7,
+  "Aberg":8,"Hatton":9,"Henley":10,"Morikawa":11,"Bryson":12,"Koepka":13,"Burns":14,
+  "Reed":15,"Si Woo Kim":16,"Rose":17,"Gotterup":18,"Hovland":19,"Clark":20,"Cantlay":21,
+  "Spaun":22,"Matsuyama":23,"JT":24,"Bobby Mac":25,"Straka":26,"English":27,"Kitayama":28,
+  "Lowry":29,"Cam Smith":30,"Noren":31,"McNealy":32,"Min Woo":33,"Gerard":34,"Reitan":35,
+  "Griffin":36,"Day":37,"Alex Fitzpatrick":38,"Niemann":39,"Scott":40,"Spieth":41,"Fowler":42,
+  "Bridgeman":43,"Bradley":44,"Conners":45,"Cauley":46,"Rai":47,"Theegala":48,"Puig":49,
+  "Woodland":50,"Koivun":51,"N Hojgaard":52,"Berger":53,"Keefer":54,"Harman":55,"Mitchell":56
 };
 
 // ============================================================
-//  NAME MAPPING: Pool nickname -> ESPN fullName (exact match)
-//  Using full names from ESPN feed for reliable matching
+//  NAME MAPPING: Pool nickname -> ESPN feed name
 // ============================================================
 const NAME_TO_FEED = {
-  "Scheffler": "Scottie Scheffler",
-  "Rory": "Rory McIlroy",
-  "Xander": "Xander Schauffele",
-  "Rahm": "Jon Rahm",
-  "Bryson": "Bryson DeChambeau",
-  "Young": "Cameron Young",
-  "Aberg": "Ludvig Aberg",
-  "Fleetwood": "Tommy Fleetwood",
-  "Matt Fitzpatrick": "Matt Fitzpatrick",
-  "Cantlay": "Patrick Cantlay",
-  "Rose": "Justin Rose",
-  "JT": "Justin Thomas",
-  "Min Woo": "Min Woo Lee",
-  "Morikawa": "Collin Morikawa",
-  "Henley": "Russell Henley",
-  "Hatton": "Tyrrell Hatton",
-  "Si Woo Kim": "Si Woo Kim",
-  "Gotterup": "Chris Gotterup",
-  "Hovland": "Viktor Hovland",
-  "N Hojgaard": "Nicolai Hojgaard",
-  "Koepka": "Brooks Koepka",
-  "Fowler": "Rickie Fowler",
-  "Burns": "Sam Burns",
-  "Bobby Mac": "Robert MacIntyre",
-  "Reed": "Patrick Reed",
-  "Spieth": "Jordan Spieth",
-  "Scott": "Adam Scott",
-  "Matsuyama": "Hideki Matsuyama",
-  "Spaun": "J.J. Spaun",
-  "Lowry": "Shane Lowry",
-  "Bhatia": "Akshay Bhatia",
-  "Straka": "Sepp Straka",
-  "English": "Harris English",
-  "Griffin": "Ben Griffin",
-  "Conners": "Corey Conners",
-  "McNealy": "Maverick McNealy",
-  "Niemann": "Joaquin Niemann",
-  "Kitayama": "Kurt Kitayama",
-  "Reitan": "Kristoffer Reitan",
-  "Alex Fitzpatrick": "Alex Fitzpatrick",
-  "Bridgeman": "Jacob Bridgeman",
-  "Woodland": "Gary Woodland",
-  "Bradley": "Keegan Bradley",
-  "Im": "Sungjae Im",
-  "Detry": "Thomas Detry",
-  "Day": "Jason Day",
-  "Thorbjornsen": "Michael Thorbjornsen",
-  "Noren": "Alex Noren",
-  "Harry Hall": "Harry Hall",
-  "Smalley": "Alex Smalley",
-  "Rai": "Aaron Rai",
-  "Puig": "David Puig",
-  "Clark": "Wyndham Clark",
-  "Taylor": "Nick Taylor",
-  "Fox": "Ryan Fox",
-  "Theegala": "Sahith Theegala",
-  "R Hojgaard": "Rasmus Hojgaard",
-  "Yellamaraju": "Sudarshan Yellamaraju",
-  "Mitchell": "Keith Mitchell",
-  "Cam Smith": "Cameron Smith",
-  "McCarty": "Matt McCarty",
-  "Hoge": "Tom Hoge",
-  "Penge": "Marco Penge",
-  "Brennan": "Michael Brennan"
+  "Scheffler": "Scheffler",
+  "Rory": "McIlroy",
+  "Fleetwood": "Fleetwood",
+  "Rahm": "Rahm",
+  "Xander": "Schauffele",
+  "Cam Young": "Young",
+  "Matt Fitzpatrick": "Fitzpatrick, M",
+  "Burns": "Burns",
+  "Koepka": "Koepka",
+  "Bryson": "DeChambeau",
+  "Morikawa": "Morikawa",
+  "Henley": "Henley",
+  "Hatton": "Hatton",
+  "Aberg": "Aberg",
+  "Reed": "Reed",
+  "Si Woo Kim": "Kim, S",
+  "Rose": "Rose",
+  "Gotterup": "Gotterup",
+  "Hovland": "Hovland",
+  "Clark": "Clark",
+  "Cantlay": "Cantlay",
+  "Spaun": "Spaun",
+  "Matsuyama": "Matsuyama",
+  "JT": "Thomas",
+  "Bobby Mac": "MacIntyre",
+  "Straka": "Straka",
+  "English": "English",
+  "Kitayama": "Kitayama",
+  "Lowry": "Lowry",
+  "Cam Smith": "Smith",
+  "Noren": "Noren",
+  "McNealy": "McNealy",
+  "Min Woo": "Lee",
+  "Gerard": "Gerard",
+  "Reitan": "Reitan",
+  "Griffin": "Griffin",
+  "Day": "Day",
+  "Alex Fitzpatrick": "Fitzpatrick, A",
+  "Niemann": "Niemann",
+  "Scott": "Scott",
+  "Spieth": "Spieth",
+  "Fowler": "Fowler",
+  "Bridgeman": "Bridgeman",
+  "Bradley": "Bradley",
+  "Conners": "Conners",
+  "Cauley": "Cauley",
+  "Rai": "Rai",
+  "Theegala": "Theegala",
+  "Puig": "Puig",
+  "Woodland": "Woodland",
+  "Koivun": "Koivun",
+  "N Hojgaard": "Hojgaard, N",
+  "Berger": "Berger",
+  "Keefer": "Keefer",
+  "Harman": "Harman",
+  "Mitchell": "Mitchell"
 };
 
 // ============================================================
@@ -442,7 +438,7 @@ Object.keys(DRAFT_ORDER).forEach(name => {
 });
 
 // ============================================================
-//  LIVE DATA FETCHING — ESPN (PGA Championship)
+//  LIVE DATA FETCHING — ESPN
 // ============================================================
 const norm = s => (s || "")
   .normalize("NFD").replace(/[̀-ͯ]/g, "")
@@ -473,34 +469,42 @@ async function fetchESPNFeed() {
   if (!resp.ok) return false;
   const data = await resp.json();
 
-  // Find the PGA Championship event
-  const pgaEvent = (data.events || []).find(e =>
-    (e.name || "").toLowerCase().includes("pga championship")
+  const usoEvent = (data.events || []).find(e =>
+    (e.name || "").toLowerCase().includes("u.s. open") ||
+    (e.name || "").toLowerCase().includes("us open")
   );
-  if (!pgaEvent) return false;
+  if (!usoEvent) return false;
 
-  const competition = pgaEvent.competitions && pgaEvent.competitions[0];
+  const competition = usoEvent.competitions && usoEvent.competitions[0];
   if (!competition || !competition.competitors) return false;
 
   const competitors = competition.competitors;
 
-  // Build lookup by normalized fullName (ESPN doesn't always populate firstName/lastName)
-  const byFullName = {};
+  const byKey = {};
   competitors.forEach(c => {
     const athlete = c.athlete || {};
+    const lastName = norm(athlete.lastName || "");
+    const firstName = norm(athlete.firstName || "");
     const fullName = norm(athlete.fullName || athlete.displayName || "");
-    byFullName[fullName] = c;
+    byKey[lastName] = c;
+    byKey[fullName] = c;
+    if (firstName && lastName) {
+      byKey[lastName + ", " + firstName[0]] = c;
+    }
   });
+
+  const compStatus = competition.status || {};
+  const compRound = compStatus.period || 0;
+  const compComplete = compStatus.type ? compStatus.type.completed : false;
 
   for (const [poolName, feedHint] of Object.entries(NAME_TO_FEED)) {
     const hint = norm(feedHint);
-    let c = byFullName[hint];
-    // Fallback: partial match on fullName
+    let c = byKey[hint];
     if (!c) {
       c = competitors.find(comp => {
         const a = comp.athlete || {};
-        const full = norm(a.fullName || a.displayName || "");
-        return full.includes(hint) || hint.includes(full);
+        return norm(a.lastName || "") === hint ||
+               norm(a.fullName || "").includes(hint);
       });
     }
 
@@ -514,29 +518,19 @@ async function fetchESPNFeed() {
 
       let todayScore = null;
 
-      // Detect cut status:
-      // 1. ESPN explicit status field
-      // 2. After round 2 is complete, players with only 2 linescores periods missed the cut
       let status = "active";
       const state = c.status && c.status.type ? c.status.type.name : "";
       if (state === "cut") status = "cut";
       if (state === "wd" || state === "withdrawn") status = "wd";
 
-      const compStatus = competition.status || {};
-      const compRound = compStatus.period || 0;
-      const compComplete = compStatus.type ? compStatus.type.completed : false;
       const roundPeriods = (c.linescores || []).length;
-
-      // If round 2+ is complete and player only has 2 periods of data, they missed the cut
       if (status === "active" && compRound >= 2 && roundPeriods === 2) {
-        // Check if other players have more periods (confirming cut has happened)
         const maxPeriods = Math.max(...competitors.map(x => (x.linescores || []).length));
         if (maxPeriods > 2 || compComplete) {
           status = "cut";
         }
       }
 
-      // For cut players, null out their score so it doesn't count
       if (status === "cut") {
         score = null;
         todayScore = null;
@@ -704,7 +698,7 @@ function renderTeams() {
       const p = players[playerName];
       const pickNum = DRAFT_ORDER[playerName] || "?";
       const cutClass = (p.status === "cut" || p.status === "wd") ? "cut" : "";
-      const star = countingSet.has(playerName) ? '<span style="color:var(--pga-gold);margin-right:4px">&#9733;</span>' : '';
+      const star = countingSet.has(playerName) ? '<span style="color:var(--uso-gold);margin-right:4px">&#9733;</span>' : '';
       html += `<div class="team-player ${cutClass}">
         <span>${star}<span class="pick-num">#${pickNum}</span> ${playerName}</span>
         <span class="player-score ${scoreClass(p.score, p.status)}">${formatScore(p.score)}</span>
@@ -730,12 +724,15 @@ function renderStandings() {
     });
 
   let html = `<h2 class="section-title">Team Standings</h2>
-    <p style="font-size:0.8rem;color:#888;margin:4px 0 8px;">Team score = sum of the BEST 4 player scores. Must have 4+ players make the cut to be eligible.</p>
+    <p style="font-size:0.8rem;color:#888;margin:4px 0 8px;">Team score = sum of the BEST 4 player scores. Must have 4+ players make the cut to be eligible. Last place pays extra $1K.</p>
     <div class="team-standings">`;
 
   standings.forEach((t, i) => {
-    const rankClass = i === 0 ? "first" : i === 1 ? "second" : "";
+    const isLast = i === standings.length - 1 && standings.length === Object.keys(OWNERS).length;
+    const hasScores = Object.values(players).some(p => p.score !== null);
+    const rankClass = i === 0 ? "first" : i === 1 ? "second" : (isLast && hasScores) ? "last" : "";
     const eligClass = !t.eligible ? "ineligible" : "";
+    const lastClass = (isLast && hasScores) ? "last-place" : "";
 
     const teamPlayers = OWNERS[t.owner].players
       .map(name => ({ name, ...players[name], pick: DRAFT_ORDER[name] }))
@@ -760,13 +757,14 @@ function renderStandings() {
     });
     dropdownHtml += '</div>';
 
-    html += `<div class="team-standing ${eligClass}">
+    html += `<div class="team-standing ${eligClass} ${lastClass}">
       <div class="team-standing-row" onclick="toggleTeamDropdown(this)">
         <div class="team-rank ${rankClass}">${i + 1}</div>
         <div class="team-info">
           <h3>${t.owner}</h3>
           <span class="players-made-cut">${t.madeCut} active / ${t.cutPlayers} cut</span>
           ${!t.eligible ? '<span class="ineligible-label"> &bull; INELIGIBLE (need 4 to make cut)</span>' : ''}
+          ${(isLast && hasScores) ? '<span class="last-label"> &bull; LAST PLACE (+$1K penalty)</span>' : ''}
         </div>
         <div class="team-total-score ${scoreClass(t.totalScore, '')}">${formatScore(t.totalScore)}</div>
         <div class="team-caret">&#9660;</div>
@@ -778,7 +776,7 @@ function renderStandings() {
 
   const topPlayers = getPlayersSorted().filter(p => p.status === "active").slice(0, 5);
   if (topPlayers.length > 0 && topPlayers[0].score !== null) {
-    html += `<h2 class="section-title" style="margin-top:24px">Individual Leader (PGA Champ Winner = $6K / Runner-Up = $3K)</h2>
+    html += `<h2 class="section-title" style="margin-top:24px">Individual Leader (Winner = $4K / Runner-Up = $3K)</h2>
       <table class="leaderboard-table">
       <thead><tr><th class="pos-col">Pos</th><th>Player</th><th>Owner</th><th class="score-col">Score</th></tr></thead><tbody>`;
     topPlayers.forEach((p, i) => {
@@ -797,34 +795,35 @@ function renderStandings() {
 
 function calcPayouts() {
   const winnings = {};
-  Object.keys(OWNERS).forEach(o => winnings[o] = 0);
+  const penalties = {};
+  Object.keys(OWNERS).forEach(o => { winnings[o] = 0; penalties[o] = 0; });
 
   const sorted = getPlayersSorted().filter(p => p.status === "active" && p.score !== null);
   const hasScores = sorted.length > 0;
-  if (!hasScores) return { winnings, details: [] };
+  if (!hasScores) return { winnings, penalties, details: [] };
 
   const details = [];
 
-  // Individual: PGA Champ Winner ($6K) and Runner-Up ($3K)
+  // Individual: Winner ($4K) and Runner-Up ($3K)
   if (sorted.length >= 1) {
     const bestScore = sorted[0].score;
     const winners = sorted.filter(p => p.score === bestScore);
     if (winners.length === 1) {
-      winnings[winners[0].owner] += 6000;
-      details.push({ prize: "PGA Champ Winner", amount: 6000, owners: [winners[0].owner], player: winners[0].name });
+      winnings[winners[0].owner] += 4000;
+      details.push({ prize: "US Open Winner", amount: 4000, owners: [winners[0].owner], player: winners[0].name });
       const remaining = sorted.filter(p => p.score !== bestScore);
       if (remaining.length >= 1) {
         const runnerScore = remaining[0].score;
         const runners = remaining.filter(p => p.score === runnerScore);
         const split = Math.round(3000 / runners.length);
         runners.forEach(r => winnings[r.owner] += split);
-        details.push({ prize: "PGA Champ Runner-Up", amount: 3000, owners: runners.map(r => r.owner), player: runners.map(r => r.name).join(", "), split: runners.length > 1 });
+        details.push({ prize: "US Open Runner-Up", amount: 3000, owners: runners.map(r => r.owner), player: runners.map(r => r.name).join(", "), split: runners.length > 1 });
       }
     } else {
-      const totalPool = 9000;
+      const totalPool = 7000;
       const splitAmount = Math.round(totalPool / winners.length);
       winners.forEach(w => winnings[w.owner] += splitAmount);
-      details.push({ prize: "PGA Champ Winner + Runner-Up (tied)", amount: totalPool, owners: winners.map(w => w.owner), player: winners.map(w => w.name).join(", "), split: true });
+      details.push({ prize: "US Open Winner + Runner-Up (tied)", amount: totalPool, owners: winners.map(w => w.owner), player: winners.map(w => w.name).join(", "), split: true });
     }
   }
 
@@ -856,19 +855,34 @@ function calcPayouts() {
     }
   }
 
-  return { winnings, details };
+  // Last place penalty ($1K)
+  const allTeams = Object.keys(OWNERS)
+    .map(owner => ({ owner, ...getTeamScore(owner) }))
+    .filter(t => t.totalScore !== null)
+    .sort((a, b) => a.totalScore - b.totalScore);
+
+  if (allTeams.length === Object.keys(OWNERS).length) {
+    const worstScore = allTeams[allTeams.length - 1].totalScore;
+    const lastTeams = allTeams.filter(t => t.totalScore === worstScore);
+    const penaltyPer = Math.round(1000 / lastTeams.length);
+    lastTeams.forEach(t => penalties[t.owner] += penaltyPer);
+    details.push({ prize: "Last Place Penalty", amount: -1000, owners: lastTeams.map(t => t.owner), split: lastTeams.length > 1, isPenalty: true });
+  }
+
+  return { winnings, penalties, details };
 }
 
 function renderPayouts() {
-  const { winnings, details } = calcPayouts();
+  const { winnings, penalties, details } = calcPayouts();
   const hasScores = Object.values(players).some(p => p.score !== null);
 
   let html = `<h2 class="section-title">Payout Structure</h2>
     <div class="payouts-grid">
-      <div class="payout-card"><h3>PGA Champ Winner</h3><div class="payout-amount">$6,000</div><div class="payout-desc">Owner of the tournament champion</div></div>
-      <div class="payout-card"><h3>PGA Champ Runner-Up</h3><div class="payout-amount">$3,000</div><div class="payout-desc">Owner of the solo 2nd place finisher</div></div>
-      <div class="payout-card"><h3>Team Champion</h3><div class="payout-amount">$10,000</div><div class="payout-desc">Lowest best-4 combined score (4+ must make cut)</div></div>
-      <div class="payout-card"><h3>Team Runner-Up</h3><div class="payout-amount">$5,000</div><div class="payout-desc">Second lowest combined team score</div></div>
+      <div class="payout-card"><h3>US Open Winner</h3><div class="payout-amount">$4,000</div><div class="payout-desc">Owner of the tournament champion</div></div>
+      <div class="payout-card"><h3>US Open Runner-Up</h3><div class="payout-amount">$3,000</div><div class="payout-desc">Owner of the 2nd place finisher</div></div>
+      <div class="payout-card"><h3>Team Champion</h3><div class="payout-amount">$10,000</div><div class="payout-desc">Lowest best-4 combined score</div></div>
+      <div class="payout-card"><h3>Team Runner-Up</h3><div class="payout-amount">$5,000</div><div class="payout-desc">Second lowest team score</div></div>
+      <div class="payout-card penalty"><h3>Last Place</h3><div class="payout-amount penalty">+$1,000</div><div class="payout-desc">Worst team pays extra $1K</div></div>
     </div>`;
 
   if (hasScores) {
@@ -880,25 +894,29 @@ function renderPayouts() {
       details.forEach(d => {
         const ownerStr = d.owners.join(", ") + (d.split ? " (split)" : "");
         const playerStr = d.player ? ` <span style="color:#888;font-size:0.8rem">(${d.player})</span>` : "";
-        const perPerson = d.split ? Math.round(d.amount / d.owners.length) : d.amount;
-        html += `<tr><td>${d.prize}${playerStr}</td><td>${ownerStr}</td><td class="score-col" style="color:var(--pga-blue);font-weight:bold">$${perPerson.toLocaleString()}${d.split ? " each" : ""}</td></tr>`;
+        const perPerson = d.split ? Math.round(Math.abs(d.amount) / d.owners.length) : Math.abs(d.amount);
+        const amtColor = d.isPenalty ? "color:var(--cut-red)" : "color:var(--uso-blue)";
+        const prefix = d.isPenalty ? "+$" : "$";
+        html += `<tr><td>${d.prize}${playerStr}</td><td>${ownerStr}</td><td class="score-col" style="${amtColor};font-weight:bold">${prefix}${perPerson.toLocaleString()}${d.split ? " each" : ""}</td></tr>`;
       });
       html += `</tbody></table>`;
     }
 
     const ownerTotals = Object.entries(winnings)
-      .map(([owner, amount]) => ({ owner, amount, net: amount - 3000 }))
-      .sort((a, b) => b.amount - a.amount);
+      .map(([owner, amount]) => ({ owner, amount, penalty: penalties[owner] || 0, net: amount - 3000 - (penalties[owner] || 0) }))
+      .sort((a, b) => b.net - a.net);
 
     html += `<table class="leaderboard-table">
-      <thead><tr><th>Owner</th><th class="score-col">Winnings</th><th class="score-col">Buy-In</th><th class="score-col">Net</th></tr></thead><tbody>`;
+      <thead><tr><th>Owner</th><th class="score-col">Winnings</th><th class="score-col">Buy-In</th><th class="score-col">Penalty</th><th class="score-col">Net</th></tr></thead><tbody>`;
     ownerTotals.forEach(o => {
       const netClass = o.net > 0 ? "score-under" : o.net < 0 ? "score-over" : "score-even";
       const netStr = o.net > 0 ? `+$${o.net.toLocaleString()}` : o.net < 0 ? `-$${Math.abs(o.net).toLocaleString()}` : "$0";
+      const penaltyStr = o.penalty > 0 ? `+$${o.penalty.toLocaleString()}` : "—";
       html += `<tr>
         <td>${o.owner}</td>
-        <td class="score-col" style="font-weight:bold;color:var(--pga-blue)">${o.amount > 0 ? "$" + o.amount.toLocaleString() : "—"}</td>
+        <td class="score-col" style="font-weight:bold;color:var(--uso-blue)">${o.amount > 0 ? "$" + o.amount.toLocaleString() : "—"}</td>
         <td class="score-col" style="color:#888">$3,000</td>
+        <td class="score-col" style="color:${o.penalty > 0 ? 'var(--cut-red)' : '#888'}">${penaltyStr}</td>
         <td class="score-col ${netClass}">${netStr}</td>
       </tr>`;
     });
@@ -908,11 +926,12 @@ function renderPayouts() {
   html += `<div class="rules-box" style="margin-top:16px">
       <h3>Pool Rules</h3>
       <ul>
-        <li><strong>Buy-in:</strong> $3,000 per team (8 teams = $24,000 total pot)</li>
-        <li><strong>Draft:</strong> Snake draft, 8 rounds, 8 players per team (64 total picks)</li>
+        <li><strong>Buy-in:</strong> $3,000 per team (7 teams = $21,000)</li>
+        <li><strong>Draft:</strong> Snake draft, 8 rounds, 8 players per team (56 total picks)</li>
         <li><strong>Team Eligibility:</strong> At least 4 of your 8 players must make the cut</li>
         <li><strong>Team Score:</strong> Sum of the best 4 player scores (of those who made the cut)</li>
-        <li><strong>Individual Prizes:</strong> Based on which owner drafted the PGA Championship winner / runner-up</li>
+        <li><strong>Individual Prizes:</strong> Based on which owner drafted the US Open winner / runner-up</li>
+        <li><strong>Last Place:</strong> Worst team score pays an additional $1,000</li>
         <li><strong>Ties:</strong> Prize money is split evenly among tied owners</li>
       </ul>
     </div>`;
