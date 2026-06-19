@@ -480,17 +480,12 @@ async function fetchESPNFeed() {
 
   const competitors = competition.competitors;
 
-  const byKey = {};
+  // Build lookup by normalized full name
+  const byFullName = {};
   competitors.forEach(c => {
     const athlete = c.athlete || {};
-    const lastName = norm(athlete.lastName || "");
-    const firstName = norm(athlete.firstName || "");
     const fullName = norm(athlete.fullName || athlete.displayName || "");
-    byKey[lastName] = c;
-    byKey[fullName] = c;
-    if (firstName && lastName) {
-      byKey[lastName + ", " + firstName[0]] = c;
-    }
+    byFullName[fullName] = c;
   });
 
   const compStatus = competition.status || {};
@@ -498,13 +493,16 @@ async function fetchESPNFeed() {
   const compComplete = compStatus.type ? compStatus.type.completed : false;
 
   for (const [poolName, feedHint] of Object.entries(NAME_TO_FEED)) {
-    const hint = norm(feedHint);
-    let c = byKey[hint];
+    // First try matching pool name directly (since we use full names now)
+    let c = byFullName[norm(poolName)];
+    // Then try the feed hint
+    if (!c) c = byFullName[norm(feedHint)];
+    // Fallback: partial match on fullName
     if (!c) {
+      const hint = norm(feedHint);
       c = competitors.find(comp => {
-        const a = comp.athlete || {};
-        return norm(a.lastName || "") === hint ||
-               norm(a.fullName || "").includes(hint);
+        const full = norm(comp.athlete?.fullName || comp.athlete?.displayName || "");
+        return full.includes(hint);
       });
     }
 
