@@ -521,15 +521,14 @@ async function fetchESPNFeed() {
       if (state === "cut") status = "cut";
       if (state === "wd" || state === "withdrawn") status = "wd";
 
+      // Detect cut/WD: fewer linescores periods than the leaders means missed cut or WD
       const roundPeriods = (c.linescores || []).length;
-      if (status === "active" && compRound >= 2 && roundPeriods === 2) {
-        const maxPeriods = Math.max(...competitors.map(x => (x.linescores || []).length));
-        if (maxPeriods > 2 || compComplete) {
-          status = "cut";
-        }
+      const maxPeriods = Math.max(...competitors.map(x => (x.linescores || []).length));
+      if (status === "active" && compRound >= 2 && roundPeriods < maxPeriods) {
+        status = roundPeriods <= 1 ? "wd" : "cut";
       }
 
-      if (status === "cut") {
+      if (status === "cut" || status === "wd") {
         score = null;
         todayScore = null;
       }
